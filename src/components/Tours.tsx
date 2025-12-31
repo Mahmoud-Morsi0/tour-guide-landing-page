@@ -1,86 +1,12 @@
 import Image from 'next/image';
-
-interface Tour {
-  id: number;
-  name: string;
-  duration: string;
-  price?: string;
-  image: string;
-  description: string;
-  rating?: number;
-}
+import Link from 'next/link';
+import { tours } from '@/src/data/tours';
 
 interface ToursProps {
   whatsappNumber: string;
 }
 
-const tours: Tour[] = [
-  {
-    id: 1,
-    name: 'Pyramids of Giza & Sphinx',
-    duration: 'Half Day',
-    price: 'From $50',
-    image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d73ab6?q=80&w=800',
-    description:
-      'Visit the last remaining wonder of the ancient world. Explore the Great Pyramid, Sphinx, and Valley Temple.',
-    rating: 4.9,
-  },
-  {
-    id: 2,
-    name: 'Nile River Cruise',
-    duration: 'Full Day',
-    price: 'From $80',
-    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=800',
-    description:
-      'Sail along the legendary Nile River. Enjoy traditional Egyptian cuisine and breathtaking views.',
-    rating: 4.8,
-  },
-  {
-    id: 3,
-    name: 'Luxor & Valley of the Kings',
-    duration: '2 Days',
-    price: 'From $150',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=800',
-    description:
-      'Discover the ancient capital of Thebes. Explore royal tombs, temples, and monuments.',
-    rating: 4.9,
-  },
-  {
-    id: 4,
-    name: 'Cairo City Tour',
-    duration: 'Full Day',
-    price: 'From $60',
-    image: 'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=800',
-    description:
-      'Experience the vibrant capital. Visit the Egyptian Museum, Khan el-Khalili bazaar, and Islamic Cairo.',
-    rating: 4.7,
-  },
-  {
-    id: 5,
-    name: 'Abu Simbel Temples',
-    duration: 'Full Day',
-    price: 'From $120',
-    image: 'https://images.unsplash.com/photo-1580502304784-8985b4cdfd0e?q=80&w=800',
-    description:
-      'Marvel at Ramesses II magnificent temples. A UNESCO World Heritage site of incredible scale.',
-    rating: 4.8,
-  },
-  {
-    id: 6,
-    name: 'Red Sea & Desert Safari',
-    duration: '2 Days',
-    price: 'From $180',
-    image: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=800',
-    description:
-      'Combine beach relaxation with desert adventure. Snorkeling, camel rides, and Bedouin experiences.',
-    rating: 4.9,
-  },
-];
-
 export default function Tours({ whatsappNumber }: ToursProps) {
-  const whatsappUrl = (tourName: string) =>
-    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hello, I would like to book the ${tourName} tour.`)}`;
-
   const renderStars = (rating: number) => {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;
@@ -194,10 +120,8 @@ export default function Tours({ whatsappNumber }: ToursProps) {
                 {tour.rating && (
                   <div className="mb-4">{renderStars(tour.rating)}</div>
                 )}
-                <a
-                  href={whatsappUrl(tour.name)}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={`/tours/${tour.slug}`}
                   className="inline-flex items-center justify-center w-full bg-gray-900 text-white px-4 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors group"
                 >
                   More details
@@ -214,7 +138,7 @@ export default function Tours({ whatsappNumber }: ToursProps) {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           ))}
