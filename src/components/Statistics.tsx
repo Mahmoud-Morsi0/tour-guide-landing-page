@@ -33,7 +33,7 @@ export default function Statistics() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
-            <p className="text-sm uppercase tracking-wider text-gray-500 mb-2">
+            <p className="text-sm uppercase tracking-wider text-gray-600 mb-2">
               TRUSTED NETWORK
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">

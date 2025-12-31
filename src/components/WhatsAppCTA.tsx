@@ -36,7 +36,7 @@ export default function WhatsAppCTA({ whatsappNumber }: WhatsAppCTAProps) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 bg-white text-[#25D366] px-10 py-5 md:px-12 md:py-6 rounded-xl text-lg md:text-xl font-bold hover:bg-gray-100 transition-all shadow-2xl hover:shadow-3xl transform hover:scale-105"
+            className="inline-flex items-center gap-3 bg-white text-[#128C7E] px-10 py-5 md:px-12 md:py-6 rounded-xl text-lg md:text-xl font-bold hover:bg-gray-100 transition-all shadow-2xl hover:shadow-3xl transform hover:scale-105"
           >
             <svg
               className="w-7 h-7 md:w-8 md:h-8"

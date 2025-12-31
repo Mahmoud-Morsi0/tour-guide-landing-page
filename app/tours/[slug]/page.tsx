@@ -4,6 +4,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
+import ImageCarousel from '@/src/components/ImageCarousel';
+import TourHeroCarousel from '@/src/components/TourHeroCarousel';
 import { getTourBySlug, tours } from '@/src/data/tours';
 import { WHATSAPP_NUMBER } from '@/src/config/constants';
 
@@ -128,47 +130,15 @@ export default async function TourDetailsPage({
         </div>
       </div>
 
-      {/* Hero Image */}
-      <div className="relative h-[400px] md:h-[500px] lg:h-[600px]">
-        <Image
-          src={tour.image}
-          alt={tour.name}
-          fill
-          priority
-          className="object-cover"
-          quality={90}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 container mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-            {tour.name}
-          </h1>
-          <div className="flex items-center gap-6 text-white">
-            <div className="flex items-center gap-2">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              <span>{tour.duration}</span>
-            </div>
-            {tour.rating && (
-              <div className="flex items-center gap-2">
-                {renderStars(tour.rating)}
-              </div>
-            )}
-            <div className="text-2xl font-bold">{tour.price}</div>
-          </div>
-        </div>
-      </div>
+      {/* Hero Image Carousel */}
+      <TourHeroCarousel
+        images={tour.images}
+        mainImage={tour.image}
+        tourName={tour.name}
+        duration={tour.duration}
+        price={tour.price}
+        rating={tour.rating}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-8">
@@ -234,28 +204,13 @@ export default async function TourDetailsPage({
               </div>
             </section>
 
-            {/* Gallery */}
+            {/* Gallery Carousel */}
             {tour.images.length > 0 && (
               <section>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                  Gallery
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                  Photo Gallery
                 </h2>
-                <div className="grid md:grid-cols-3 gap-4">
-                  {tour.images.map((image, index) => (
-                    <div
-                      key={index}
-                      className="relative h-48 rounded-lg overflow-hidden"
-                    >
-                      <Image
-                        src={image}
-                        alt={`${tour.name} - Image ${index + 1}`}
-                        fill
-                        className="object-cover hover:scale-110 transition-transform duration-300"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                    </div>
-                  ))}
-                </div>
+                <ImageCarousel images={tour.images} alt={tour.name} />
               </section>
             )}
           </div>

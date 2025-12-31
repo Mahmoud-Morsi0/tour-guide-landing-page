@@ -92,7 +92,7 @@ export default function Services() {
     <section id="services" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
-          <p className="text-sm uppercase tracking-wider text-gray-500 mb-2">
+          <p className="text-sm uppercase tracking-wider text-gray-600 mb-2">
             WHAT WE OFFER
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">

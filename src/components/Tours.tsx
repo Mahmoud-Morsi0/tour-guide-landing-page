@@ -57,23 +57,15 @@ export default function Tours({ whatsappNumber }: ToursProps) {
   };
 
   return (
-    <section id="tours" className="py-16 md:py-24 bg-gray-50">
+    <section id="tours" className="py-16 md:py-24 bg-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-12 md:mb-16">
-          <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Choose your tour
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Explore hidden gems and authentic experiences
-            </p>
-          </div>
-          <a
-            href="#tours"
-            className="hidden md:block text-amber-600 hover:text-amber-700 font-medium"
-          >
-            See all →
-          </a>
+        <div className="mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Choose your tour
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600">
+            Explore hidden gems and authentic experiences
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -110,7 +102,7 @@ export default function Tours({ whatsappNumber }: ToursProps) {
                   {tour.name}
                 </h3>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm text-gray-500">{tour.duration}</span>
+                  <span className="text-sm text-gray-600">{tour.duration}</span>
                   {tour.price && (
                     <span className="text-lg font-bold text-gray-900">
                       {tour.price}

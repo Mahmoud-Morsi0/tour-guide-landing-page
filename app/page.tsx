@@ -5,6 +5,8 @@ import Statistics from '@/src/components/Statistics';
 import Tours from '@/src/components/Tours';
 import Destinations from '@/src/components/Destinations';
 import WhyChooseUs from '@/src/components/WhyChooseUs';
+import Testimonials from '@/src/components/Testimonials';
+import TravelGallery from '@/src/components/TravelGallery';
 import FAQ from '@/src/components/FAQ';
 import WhatsAppCTA from '@/src/components/WhatsAppCTA';
 import Footer from '@/src/components/Footer';
@@ -20,6 +22,8 @@ export default function Home() {
       <Services />
       <Destinations />
       <WhyChooseUs />
+      <Testimonials />
+      <TravelGallery />
       <FAQ />
       <WhatsAppCTA whatsappNumber={WHATSAPP_NUMBER} />
       <Footer whatsappNumber={WHATSAPP_NUMBER} />

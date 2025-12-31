@@ -54,27 +54,19 @@ const destinations: Destination[] = [
 
 export default function Destinations() {
   return (
-    <section id="destinations" className="py-16 md:py-24 bg-gray-50">
+    <section id="destinations" className="py-16 md:py-24 bg-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-12 md:mb-16">
-          <div>
-            <p className="text-sm uppercase tracking-wider text-gray-500 mb-2">
-              EXPLORE
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Destinations around Egypt
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              Select a place you love and explore all the adventures we offer
-              there
-            </p>
-          </div>
-          <a
-            href="#destinations"
-            className="hidden md:block text-amber-600 hover:text-amber-700 font-medium"
-          >
-            Discover more →
-          </a>
+        <div className="mb-12 md:mb-16">
+          <p className="text-sm uppercase tracking-wider text-gray-600 mb-2">
+            EXPLORE
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Destinations around Egypt
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600">
+            Select a place you love and explore all the adventures we offer
+            there
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">

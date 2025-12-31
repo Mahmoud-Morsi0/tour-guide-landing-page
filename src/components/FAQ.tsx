@@ -48,7 +48,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50">
+    <section className="py-16 md:py-24 bg-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 md:mb-16">
@@ -75,7 +75,7 @@ export default function FAQ() {
                     {faq.question}
                   </span>
                   <svg
-                    className={`w-6 h-6 text-gray-500 shrink-0 transition-transform ${
+                    className={`w-6 h-6 text-gray-600 shrink-0 transition-transform ${
                       openIndex === index ? 'rotate-180' : ''
                     }`}
                     fill="none"
