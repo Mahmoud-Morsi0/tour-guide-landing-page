@@ -7,6 +7,7 @@ interface Tour {
   price?: string;
   image: string;
   description: string;
+  rating?: number;
 }
 
 interface ToursProps {
@@ -22,6 +23,7 @@ const tours: Tour[] = [
     image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d73ab6?q=80&w=800',
     description:
       'Visit the last remaining wonder of the ancient world. Explore the Great Pyramid, Sphinx, and Valley Temple.',
+    rating: 4.9,
   },
   {
     id: 2,
@@ -31,6 +33,7 @@ const tours: Tour[] = [
     image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=800',
     description:
       'Sail along the legendary Nile River. Enjoy traditional Egyptian cuisine and breathtaking views.',
+    rating: 4.8,
   },
   {
     id: 3,
@@ -40,6 +43,7 @@ const tours: Tour[] = [
     image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=800',
     description:
       'Discover the ancient capital of Thebes. Explore royal tombs, temples, and monuments.',
+    rating: 4.9,
   },
   {
     id: 4,
@@ -49,6 +53,7 @@ const tours: Tour[] = [
     image: 'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=800',
     description:
       'Experience the vibrant capital. Visit the Egyptian Museum, Khan el-Khalili bazaar, and Islamic Cairo.',
+    rating: 4.7,
   },
   {
     id: 5,
@@ -58,6 +63,7 @@ const tours: Tour[] = [
     image: 'https://images.unsplash.com/photo-1580502304784-8985b4cdfd0e?q=80&w=800',
     description:
       'Marvel at Ramesses II magnificent temples. A UNESCO World Heritage site of incredible scale.',
+    rating: 4.8,
   },
   {
     id: 6,
@@ -67,6 +73,7 @@ const tours: Tour[] = [
     image: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=800',
     description:
       'Combine beach relaxation with desert adventure. Snorkeling, camel rides, and Bedouin experiences.',
+    rating: 4.9,
   },
 ];
 
@@ -74,63 +81,139 @@ export default function Tours({ whatsappNumber }: ToursProps) {
   const whatsappUrl = (tourName: string) =>
     `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hello, I would like to book the ${tourName} tour.`)}`;
 
+  const renderStars = (rating: number) => {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 >= 0.5;
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+    return (
+      <div className="flex items-center gap-1">
+        {[...Array(fullStars)].map((_, i) => (
+          <svg
+            key={i}
+            className="w-4 h-4 text-yellow-400 fill-current"
+            viewBox="0 0 20 20"
+          >
+            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+          </svg>
+        ))}
+        {hasHalfStar && (
+          <svg
+            className="w-4 h-4 text-yellow-400 fill-current"
+            viewBox="0 0 20 20"
+          >
+            <defs>
+              <linearGradient id="half">
+                <stop offset="50%" stopColor="currentColor" />
+                <stop offset="50%" stopColor="transparent" stopOpacity="1" />
+              </linearGradient>
+            </defs>
+            <path
+              fill="url(#half)"
+              d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+            />
+          </svg>
+        )}
+        {[...Array(emptyStars)].map((_, i) => (
+          <svg
+            key={i}
+            className="w-4 h-4 text-gray-300 fill-current"
+            viewBox="0 0 20 20"
+          >
+            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+          </svg>
+        ))}
+        <span className="ml-1 text-sm font-medium text-gray-700">
+          {rating}
+        </span>
+      </div>
+    );
+  };
+
   return (
-    <section id="tours" className="py-16 md:py-24 bg-white">
+    <section id="tours" className="py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Popular Tours
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Choose from our curated selection of unforgettable experiences
-          </p>
+        <div className="flex items-center justify-between mb-12 md:mb-16">
+          <div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Choose your tour
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600">
+              Explore hidden gems and authentic experiences
+            </p>
+          </div>
+          <a
+            href="#tours"
+            className="hidden md:block text-amber-600 hover:text-amber-700 font-medium"
+          >
+            See all →
+          </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {tours.map((tour) => (
             <div
               key={tour.id}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden group"
+              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all overflow-hidden group cursor-pointer"
             >
-              <div className="relative h-48 md:h-56 overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <Image
                   src={tour.image}
                   alt={tour.name}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />
+                {/* Rating Badge */}
+                {tour.rating && (
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1 flex items-center gap-1">
+                    <svg
+                      className="w-3 h-3 text-yellow-400 fill-current"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                    </svg>
+                    <span className="text-xs font-bold text-gray-900">
+                      {tour.rating}
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm font-semibold text-amber-600 bg-amber-50 px-3 py-1 rounded-full">
-                    {tour.duration}
-                  </span>
+                <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-1">
+                  {tour.name}
+                </h3>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-sm text-gray-500">{tour.duration}</span>
                   {tour.price && (
                     <span className="text-lg font-bold text-gray-900">
                       {tour.price}
                     </span>
                   )}
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-                  {tour.name}
-                </h3>
-                <p className="text-gray-600 mb-4 line-clamp-2">{tour.description}</p>
+                {tour.rating && (
+                  <div className="mb-4">{renderStars(tour.rating)}</div>
+                )}
                 <a
                   href={whatsappUrl(tour.name)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 w-full justify-center bg-[#25D366] text-white px-4 py-3 rounded-lg font-semibold hover:bg-[#20BA5A] transition-colors"
+                  className="inline-flex items-center justify-center w-full bg-gray-900 text-white px-4 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors group"
                 >
+                  More details
                   <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
+                    className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
                     viewBox="0 0 24 24"
-                    aria-hidden="true"
                   >
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
-                  Book via WhatsApp
                 </a>
               </div>
             </div>
@@ -140,4 +223,3 @@ export default function Tours({ whatsappNumber }: ToursProps) {
     </section>
   );
 }
-

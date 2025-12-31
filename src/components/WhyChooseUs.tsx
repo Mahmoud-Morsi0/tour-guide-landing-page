@@ -8,7 +8,53 @@ const features: Feature[] = [
   {
     icon: (
       <svg
-        className="w-10 h-10"
+        className="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+        />
+      </svg>
+    ),
+    title: 'Experiences',
+    description:
+      'Curated authentic experiences that go beyond tourist attractions',
+  },
+  {
+    icon: (
+      <svg
+        className="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+        />
+      </svg>
+    ),
+    title: 'Authenticity',
+    description:
+      'Local expertise ensures genuine cultural immersion and hidden gems',
+  },
+  {
+    icon: (
+      <svg
+        className="w-8 h-8"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -21,14 +67,14 @@ const features: Feature[] = [
         />
       </svg>
     ),
-    title: 'Local Expertise',
+    title: 'Transparency',
     description:
-      'Born and raised in Egypt, we know the hidden gems and authentic experiences that guidebooks miss.',
+      'Clear pricing, no hidden fees, and honest communication throughout',
   },
   {
     icon: (
       <svg
-        className="w-10 h-10"
+        className="w-8 h-8"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -37,87 +83,54 @@ const features: Feature[] = [
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth={2}
-          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+          d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
         />
       </svg>
     ),
-    title: 'Years of Experience',
+    title: 'Care',
     description:
-      'Over a decade of guiding travelers through Egypt. Trusted by thousands of satisfied visitors.',
-  },
-  {
-    icon: (
-      <svg
-        className="w-10 h-10"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-        />
-      </svg>
-    ),
-    title: 'Flexible Schedules',
-    description:
-      'We work around your timeline. Early morning starts, late evening tours, or multi-day adventures.',
-  },
-  {
-    icon: (
-      <svg
-        className="w-10 h-10"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-        />
-      </svg>
-    ),
-    title: 'Trusted by Travelers',
-    description:
-      'Rated 5 stars by hundreds of visitors. Read our reviews and see why travelers choose us.',
+      'Personal attention and support from booking to the end of your journey',
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Why Choose Us
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Experience Egypt the way it was meant to be discovered
-          </p>
-        </div>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <p className="text-sm uppercase tracking-wider text-gray-500 mb-2">
+              TRAVEL DEEPER, NOT FARTHER
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Why Travel to Egypt?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+              With Egypt Tours, every journey becomes a story you'll carry
+              forever
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="text-center p-6 rounded-xl hover:bg-white hover:shadow-lg transition-all"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-amber-100 text-amber-600 rounded-full mb-4">
-                {feature.icon}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 hover:shadow-lg transition-all"
+              >
+                <div className="w-16 h-16 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600 mb-4">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-

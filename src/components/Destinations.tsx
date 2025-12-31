@@ -54,38 +54,49 @@ const destinations: Destination[] = [
 
 export default function Destinations() {
   return (
-    <section id="destinations" className="py-16 md:py-24 bg-white">
+    <section id="destinations" className="py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Popular Destinations
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover the diverse regions of Egypt, each with its own unique
-            charm and history
-          </p>
+        <div className="flex items-center justify-between mb-12 md:mb-16">
+          <div>
+            <p className="text-sm uppercase tracking-wider text-gray-500 mb-2">
+              EXPLORE
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Destinations around Egypt
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600">
+              Select a place you love and explore all the adventures we offer
+              there
+            </p>
+          </div>
+          <a
+            href="#destinations"
+            className="hidden md:block text-amber-600 hover:text-amber-700 font-medium"
+          >
+            Discover more →
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {destinations.map((destination) => (
             <div
               key={destination.id}
-              className="group relative overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all"
+              className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer"
             >
-              <div className="relative h-64 md:h-72">
+              <div className="relative h-72 overflow-hidden">
                 <Image
                   src={destination.image}
                   alt={destination.name}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
                   <h3 className="text-2xl md:text-3xl font-bold mb-2">
                     {destination.name}
                   </h3>
-                  <p className="text-gray-200 leading-relaxed">
+                  <p className="text-gray-200 leading-relaxed text-sm md:text-base">
                     {destination.description}
                   </p>
                 </div>
@@ -97,4 +108,3 @@ export default function Destinations() {
     </section>
   );
 }
-

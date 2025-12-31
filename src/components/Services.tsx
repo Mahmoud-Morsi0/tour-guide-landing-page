@@ -89,9 +89,12 @@ const services: Service[] = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-16 md:py-24 bg-gray-50">
+    <section id="services" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
+          <p className="text-sm uppercase tracking-wider text-gray-500 mb-2">
+            WHAT WE OFFER
+          </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Our Services
           </h2>
@@ -104,9 +107,11 @@ export default function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white p-6 md:p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+              className="bg-gray-50 rounded-2xl p-6 md:p-8 hover:bg-gray-100 transition-all group"
             >
-              <div className="text-amber-600 mb-4">{service.icon}</div>
+              <div className="text-amber-600 mb-6 group-hover:scale-110 transition-transform">
+                {service.icon}
+              </div>
               <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3">
                 {service.title}
               </h3>
@@ -118,4 +123,3 @@ export default function Services() {
     </section>
   );
 }
-

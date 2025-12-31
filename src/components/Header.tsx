@@ -19,12 +19,12 @@ export default function Header({ whatsappNumber }: HeaderProps) {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="shrink-0">
-            <a href="#" className="text-2xl md:text-3xl font-bold text-amber-600">
+            <a href="#" className="text-2xl md:text-3xl font-bold text-gray-900 hover:text-amber-600 transition-colors">
               Egypt Tours
             </a>
           </div>
@@ -35,7 +35,7 @@ export default function Header({ whatsappNumber }: HeaderProps) {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-gray-700 hover:text-amber-600 transition-colors font-medium"
+                className="text-gray-700 hover:text-amber-600 transition-colors font-medium text-sm uppercase tracking-wide"
               >
                 {item.label}
               </a>
@@ -48,7 +48,7 @@ export default function Header({ whatsappNumber }: HeaderProps) {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-lg hover:bg-[#20BA5A] transition-colors font-medium shadow-md"
+              className="hidden sm:flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-lg hover:bg-[#20BA5A] transition-colors font-medium shadow-md text-sm"
             >
               <svg
                 className="w-5 h-5"
@@ -64,7 +64,7 @@ export default function Header({ whatsappNumber }: HeaderProps) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-amber-600"
+              className="md:hidden p-2 text-gray-700 hover:text-amber-600 transition-colors"
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
@@ -96,7 +96,7 @@ export default function Header({ whatsappNumber }: HeaderProps) {
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-gray-700 hover:text-amber-600 transition-colors font-medium px-2 py-1"
+                  className="text-gray-700 hover:text-amber-600 transition-colors font-medium px-2 py-1 uppercase tracking-wide text-sm"
                 >
                   {item.label}
                 </a>
@@ -124,4 +124,3 @@ export default function Header({ whatsappNumber }: HeaderProps) {
     </header>
   );
 }
-
