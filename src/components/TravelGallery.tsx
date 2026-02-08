@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import AnimatedCard from '@/src/components/AnimatedCard';
 
 interface GalleryImage {
   id: number;
@@ -39,13 +40,13 @@ export default function TravelGallery() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {galleryImages.map((image) => (
-            <div
-              key={image.id}
-              className="relative aspect-square rounded-xl overflow-hidden group cursor-pointer"
-              onClick={() => setSelectedImage(image)}
-            >
-              <Image
+          {galleryImages.map((image, index) => (
+            <AnimatedCard key={image.id} index={index} staggerDelay={0.06}>
+              <div
+                className="relative aspect-square rounded-xl overflow-hidden group cursor-pointer"
+                onClick={() => setSelectedImage(image)}
+              >
+                <Image
                 src={image.src}
                 alt={t(`alts.${image.altKey}`)}
                 fill
@@ -60,7 +61,8 @@ export default function TravelGallery() {
                   )}
                 </div>
               </div>
-            </div>
+              </div>
+            </AnimatedCard>
           ))}
         </div>
 

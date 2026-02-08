@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import AnimatedCard from '@/src/components/AnimatedCard';
 
 const destinationKeys = [
   'cairo',
@@ -41,10 +42,8 @@ export default function Destinations() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {destinationKeys.map((key, index) => (
-            <div
-              key={key}
-              className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer"
-            >
+            <AnimatedCard key={key} index={index} staggerDelay={0.08}>
+              <div className="group relative overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all cursor-pointer">
               <div className="relative h-72 overflow-hidden">
                 <Image
                   src={images[index]}
@@ -64,7 +63,8 @@ export default function Destinations() {
                   </p>
                 </div>
               </div>
-            </div>
+              </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>

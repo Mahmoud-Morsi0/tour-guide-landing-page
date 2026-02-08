@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import AnimatedCard from '@/src/components/AnimatedCard';
 
 const avatarUrls = [
   'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150',
@@ -95,11 +96,9 @@ export default function Testimonials() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {currentIndices.map((idx) => (
-              <div
-                key={idx}
-                className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow"
-              >
+            {currentIndices.map((idx, cardIndex) => (
+              <AnimatedCard key={idx} index={cardIndex} staggerDelay={0.08}>
+                <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow">
                 <div className="text-4xl text-gray-800 mb-4">"</div>
                 <div className="mb-3">{renderStars(5)}</div>
                 <p className="text-gray-700 mb-6 leading-relaxed">
@@ -126,6 +125,7 @@ export default function Testimonials() {
                   </div>
                 </div>
               </div>
+              </AnimatedCard>
             ))}
           </div>
 

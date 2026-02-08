@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import AnimatedCard from '@/src/components/AnimatedCard';
 
 const serviceKeys = ['private', 'group', 'transport', 'tickets'] as const;
 
@@ -31,10 +32,8 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {serviceKeys.map((key, index) => (
-            <div
-              key={key}
-              className="bg-gray-50 rounded-2xl p-6 md:p-8 hover:bg-gray-100 transition-all group"
-            >
+            <AnimatedCard key={key} index={index} staggerDelay={0.08}>
+              <div className="bg-gray-50 rounded-2xl p-6 md:p-8 hover:bg-gray-100 transition-all group">
               <div className="text-amber-600 mb-6 group-hover:scale-110 transition-transform">
                 <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   {icons[index]}
@@ -46,7 +45,8 @@ export default function Services() {
               <p className="text-gray-600 leading-relaxed">
                 {t(`items.${key}.description`)}
               </p>
-            </div>
+              </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>

@@ -10,6 +10,7 @@ import TravelGallery from '@/src/components/TravelGallery';
 import FAQ from '@/src/components/FAQ';
 import WhatsAppCTA from '@/src/components/WhatsAppCTA';
 import Footer from '@/src/components/Footer';
+import AnimatedSection from '@/src/components/AnimatedSection';
 import { WHATSAPP_NUMBER } from '@/src/config/constants';
 import { setRequestLocale } from 'next-intl/server';
 
@@ -23,16 +24,36 @@ export default async function HomePage({ params }: Props) {
     <main className="min-h-screen">
       <Header whatsappNumber={WHATSAPP_NUMBER} />
       <Hero whatsappNumber={WHATSAPP_NUMBER} />
-      <Statistics />
-      <Tours whatsappNumber={WHATSAPP_NUMBER} />
-      <Services />
-      <Destinations />
-      <WhyChooseUs />
-      <Testimonials />
-      <TravelGallery />
-      <FAQ />
-      <WhatsAppCTA whatsappNumber={WHATSAPP_NUMBER} />
-      <Footer whatsappNumber={WHATSAPP_NUMBER} />
+      <AnimatedSection variant="fadeUp" amount={32}>
+        <Statistics />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" amount={32} delay={0.05}>
+        <Tours whatsappNumber={WHATSAPP_NUMBER} />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" amount={32} delay={0.05}>
+        <Services />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" amount={36} delay={0.05}>
+        <Destinations />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" amount={36} delay={0.05}>
+        <WhyChooseUs />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" amount={32} delay={0.05}>
+        <Testimonials />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" amount={32} delay={0.05}>
+        <TravelGallery />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" amount={28} delay={0.05}>
+        <FAQ />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeIn" delay={0.05}>
+        <WhatsAppCTA whatsappNumber={WHATSAPP_NUMBER} />
+      </AnimatedSection>
+      <AnimatedSection variant="fadeUp" amount={24}>
+        <Footer whatsappNumber={WHATSAPP_NUMBER} />
+      </AnimatedSection>
     </main>
   );
 }

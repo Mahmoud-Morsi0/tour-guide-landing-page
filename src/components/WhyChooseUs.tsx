@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import AnimatedCard from '@/src/components/AnimatedCard';
 
 const featureKeys = ['experiences', 'authenticity', 'transparency', 'care'] as const;
 
@@ -32,10 +33,8 @@ export default function WhyChooseUs() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {featureKeys.map((key, index) => (
-              <div
-                key={key}
-                className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 hover:shadow-lg transition-all"
-              >
+              <AnimatedCard key={key} index={index} staggerDelay={0.08}>
+                <div className="bg-white rounded-2xl p-6 md:p-8 border border-gray-100 hover:shadow-lg transition-all">
                 <div className="w-16 h-16 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600 mb-4">
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     {iconPaths[key]}
@@ -47,7 +46,8 @@ export default function WhyChooseUs() {
                 <p className="text-gray-600 leading-relaxed">
                   {t(`items.${key}.description`)}
                 </p>
-              </div>
+                </div>
+              </AnimatedCard>
             ))}
           </div>
         </div>

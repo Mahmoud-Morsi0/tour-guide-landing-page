@@ -5,6 +5,7 @@ import { Link } from '@/src/i18n/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { tours } from '@/src/data/tours';
 import { getTourContentRu } from '@/src/data/tourContentRu';
+import AnimatedCard from '@/src/components/AnimatedCard';
 
 interface ToursProps {
   whatsappNumber: string;
@@ -85,11 +86,9 @@ export default function Tours({ whatsappNumber }: ToursProps) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {tours.map((tour) => (
-            <div
-              key={tour.id}
-              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all overflow-hidden group cursor-pointer"
-            >
+          {tours.map((tour, index) => (
+            <AnimatedCard key={tour.id} index={index} staggerDelay={0.08}>
+              <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all overflow-hidden group cursor-pointer h-full">
               <div className="relative h-56 overflow-hidden">
                 <Image
                   src={tour.image}
@@ -150,7 +149,8 @@ export default function Tours({ whatsappNumber }: ToursProps) {
                   </svg>
                 </Link>
               </div>
-            </div>
+              </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>
