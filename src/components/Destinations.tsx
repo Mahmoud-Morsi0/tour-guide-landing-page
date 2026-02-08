@@ -13,14 +13,14 @@ const destinations: Destination[] = [
     name: 'Cairo',
     description:
       'The bustling capital city, home to the Pyramids of Giza, Egyptian Museum, and vibrant Khan el-Khalili bazaar.',
-    image: 'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=800',
+    image: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770578049/pexels-zakh-33481470_ouwsrt.jpg',
   },
   {
     id: 2,
     name: 'Luxor',
     description:
       'The world\'s greatest open-air museum, featuring the Valley of the Kings, Karnak Temple, and Luxor Temple.',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=800',
+    image: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770577246/pexels-axp-photography-500641970-18934596_sbmpex.jpg',
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const destinations: Destination[] = [
     name: 'Alexandria',
     description:
       'The Mediterranean jewel, featuring the Bibliotheca Alexandrina, Qaitbay Citadel, and beautiful coastal views.',
-    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800',
+    image: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770577823/pexels-ali-salah-photographie-157747-15501969_oeuuab.jpg',
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const destinations: Destination[] = [
     name: 'Sinai Peninsula',
     description:
       'Mount Sinai, St. Catherine\'s Monastery, and stunning desert landscapes perfect for adventure seekers.',
-    image: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=800',
+    image: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770578210/pexels-muhammed-ragab-850521-2787212_gy5enq.jpg',
   },
 ];
 

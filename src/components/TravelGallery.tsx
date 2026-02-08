@@ -13,58 +13,53 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    src: 'https://images.unsplash.com/photo-1539650116574-75c0c6d73ab6?q=80&w=800',
+    src: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576003/pexels-harun-15114174-20226436_yn1iyl.jpg',
     alt: 'Pyramids of Giza',
     tour: 'Pyramids of Giza & Sphinx',
   },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=800',
+    src: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576863/pexels-indu-bikash-sarker-116278202-32286115_iffoed.jpg',
     alt: 'Nile River Cruise',
     tour: 'Nile River Cruise',
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=800',
+    src: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770577245/pexels-clioseye-35506463_fmdsju.jpg',
     alt: 'Luxor Temple',
     tour: 'Luxor & Valley of the Kings',
   },
   {
     id: 4,
-    src: 'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=800',
+    src: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770577993/pexels-mariacamila-7435827_cfactz.jpg',
     alt: 'Cairo City',
     tour: 'Cairo City Tour',
   },
   {
     id: 5,
-    src: 'https://images.unsplash.com/photo-1580502304784-8985b4cdfd0e?q=80&w=800',
+    src: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576867/pexels-girlvsglobe86-300284270-32044045_fwqf7z.jpg',
     alt: 'Abu Simbel Temples',
     tour: 'Abu Simbel Temples',
   },
   {
     id: 6,
-    src: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=800',
+    src: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770577993/pexels-mariacamila-7435827_cfactz.jpg',
     alt: 'Red Sea',
     tour: 'Red Sea & Desert Safari',
   },
   {
     id: 7,
-    src: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800',
+    src: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770577847/pexels-moaznegm-25323298_rzjvad.jpg',
     alt: 'Alexandria',
     tour: 'Alexandria Tour',
   },
   {
     id: 8,
-    src: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?q=80&w=800',
+    src: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770578049/pexels-zakh-33481470_ouwsrt.jpg',
     alt: 'Egyptian Museum',
     tour: 'Cairo City Tour',
   },
-  {
-    id: 9,
-    src: 'https://images.unsplash.com/photo-1539650116574-75c0c6d73ab6?q=80&w=800',
-    alt: 'Sphinx',
-    tour: 'Pyramids of Giza & Sphinx',
-  },
+ 
 ];
 
 export default function TravelGallery() {
