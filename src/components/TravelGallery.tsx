@@ -94,6 +94,7 @@ export default function TravelGallery() {
                 src={image.src}
                 alt={image.alt}
                 fill
+                unoptimized
                 className="object-cover group-hover:scale-110 transition-transform duration-300"
                 sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
               />
@@ -139,6 +140,7 @@ export default function TravelGallery() {
                   src={selectedImage.src}
                   alt={selectedImage.alt}
                   fill
+                  unoptimized
                   className="object-contain"
                   sizes="90vw"
                 />

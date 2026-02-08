@@ -27,9 +27,9 @@ export const tours: Tour[] = [
     slug: 'pyramids-of-giza-sphinx',
     duration: 'Half Day',
     price: 'From $50',
-    image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d73ab6?q=80&w=800',
+    image: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576003/pexels-harun-15114174-20226436_yn1iyl.jpg',
     images: [
-      'https://images.unsplash.com/photo-1539650116574-75c0c6d73ab6?q=80&w=1200',
+      'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576003/pexels-harun-15114174-20226436_yn1iyl.jpg',
       'https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=1200',
       'https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=1200',
     ],
@@ -90,11 +90,11 @@ export const tours: Tour[] = [
     slug: 'nile-river-cruise',
     duration: 'Full Day',
     price: 'From $80',
-    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=800',
+    image: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576863/pexels-indu-bikash-sarker-116278202-32286115_iffoed.jpg',
     images: [
-      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=1200',
-      'https://images.unsplash.com/photo-1539650116574-75c0c6d73ab6?q=80&w=1200',
-      'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=1200',
+      'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576845/pexels-ozgomz-7566888_ijjixu.jpg',
+      'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576869/pexels-nermeen-elrays-272682825-13047746_vzfjd4.jpg',
+      'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576387/pexels-omar-167169385-25070513_s6unsl.jpg',
     ],
     description:
       'Sail along the legendary Nile River. Enjoy traditional Egyptian cuisine and breathtaking views.',
@@ -156,11 +156,11 @@ export const tours: Tour[] = [
     slug: 'luxor-valley-of-the-kings',
     duration: '2 Days',
     price: 'From $150',
-    image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=800',
+    image: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770577246/pexels-axp-photography-500641970-18934596_sbmpex.jpg',
     images: [
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=1200',
-      'https://images.unsplash.com/photo-1580502304784-8985b4cdfd0e?q=80&w=1200',
-      'https://images.unsplash.com/photo-1539650116574-75c0c6d73ab6?q=80&w=1200',
+      'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770577262/pexels-tizzy-35549816_qtfi09.jpg',
+      'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576952/pexels-eslames1-27407537_zwpyhv.jpg',
+      'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576867/pexels-girlvsglobe86-300284270-32044045_fwqf7z.jpg',
     ],
     description:
       'Discover the ancient capital of Thebes. Explore royal tombs, temples, and monuments.',
@@ -238,8 +238,8 @@ export const tours: Tour[] = [
     image: 'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=800',
     images: [
       'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?q=80&w=1200',
-      'https://images.unsplash.com/photo-1539650116574-75c0c6d73ab6?q=80&w=1200',
-      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=1200',
+      'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770577201/pexels-i-cakir-2159413436-36035393_z4zrpp.jpg',
+      'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770577201/pexels-i-cakir-2159413436-36035393_z4zrpp.jpg',
     ],
     description:
       'Experience the vibrant capital. Visit the Egyptian Museum, Khan el-Khalili bazaar, and Islamic Cairo.',
@@ -302,11 +302,11 @@ export const tours: Tour[] = [
     slug: 'abu-simbel-temples',
     duration: 'Full Day',
     price: 'From $120',
-    image: 'https://images.unsplash.com/photo-1580502304784-8985b4cdfd0e?q=80&w=800',
+    image: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576822/pexels-mari-macaya-773309055-18915390_esmb0c.jpg',
     images: [
-      'https://images.unsplash.com/photo-1580502304784-8985b4cdfd0e?q=80&w=1200',
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=1200',
-      'https://images.unsplash.com/photo-1539650116574-75c0c6d73ab6?q=80&w=1200',
+      'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576911/pexels-radwa-magdy-1718930-28144568_m5k0e5.jpg',
+      'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576904/pexels-ahmed-helmy-184414614-11470503_unphlv.jpg',
+      'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576867/pexels-girlvsglobe86-300284270-32044045_fwqf7z.jpg',
     ],
     description:
       'Marvel at Ramesses II magnificent temples. A UNESCO World Heritage site of incredible scale.',

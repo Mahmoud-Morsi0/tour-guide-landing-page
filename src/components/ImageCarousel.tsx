@@ -34,6 +34,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
           alt={`${alt} - Image ${currentIndex + 1}`}
           fill
           priority={currentIndex === 0}
+          unoptimized
           className="object-cover"
           sizes="100vw"
         />
@@ -108,6 +109,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
                 src={image}
                 alt={`${alt} thumbnail ${index + 1}`}
                 fill
+                unoptimized
                 className="object-cover"
                 sizes="96px"
               />

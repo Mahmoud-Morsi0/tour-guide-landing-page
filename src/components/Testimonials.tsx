@@ -200,6 +200,7 @@ export default function Testimonials() {
                       src={testimonial.avatar}
                       alt={testimonial.name}
                       fill
+                      unoptimized
                       className="object-cover"
                       sizes="48px"
                     />

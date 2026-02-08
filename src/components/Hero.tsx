@@ -18,15 +18,15 @@ export default function Hero({ whatsappNumber }: HeroProps) {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1539650116574-75c0c6d73ab6?q=80&w=2070"
-          alt="Pyramids of Giza, Egypt"
+          src="https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576003/pexels-harun-15114174-20226436_yn1iyl.jpg"
+          alt="Pyramids of Giza with camel in Egyptian desert"
           fill
           priority
           className="object-cover"
           quality={90}
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/50" />
       </div>
 
       {/* Content */}
@@ -87,18 +87,7 @@ export default function Hero({ whatsappNumber }: HeroProps) {
               </a>
             </div>
 
-            {/* Right Side - Camel Image */}
-            <div className="hidden lg:flex justify-end items-end">
-              <div className="relative w-64 h-80 xl:w-80 xl:h-96">
-                <Image
-                  src="https://images.unsplash.com/photo-1509316975852-ffd9c3c5e08e?q=80&w=800"
-                  alt="Camel in Egyptian desert"
-                  fill
-                  className="object-contain object-bottom"
-                  quality={90}
-                />
-              </div>
-            </div>
+         
           </div>
         </div>
       </div>

@@ -27,7 +27,7 @@ const destinations: Destination[] = [
     name: 'Aswan',
     description:
       'A serene city on the Nile, gateway to Abu Simbel and home to the beautiful Philae Temple and Nubian culture.',
-    image: 'https://images.unsplash.com/photo-1580502304784-8985b4cdfd0e?q=80&w=800',
+    image: 'https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576387/pexels-omar-167169385-25070513_s6unsl.jpg',
   },
   {
     id: 4,
@@ -80,6 +80,7 @@ export default function Destinations() {
                   src={destination.image}
                   alt={destination.name}
                   fill
+                  unoptimized
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />

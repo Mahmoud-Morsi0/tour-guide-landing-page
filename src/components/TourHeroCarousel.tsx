@@ -88,6 +88,7 @@ export default function TourHeroCarousel({
           alt={tourName}
           fill
           priority
+          unoptimized
           className="object-cover"
           quality={90}
         />
