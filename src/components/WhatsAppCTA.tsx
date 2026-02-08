@@ -13,7 +13,7 @@ export default function WhatsAppCTA({ whatsappNumber }: WhatsAppCTAProps) {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(tCommon('whatsappMessage'))}`;
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-[#25D366] via-[#20BA5A] to-[#128C7E] relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-linear-to-br from-[#25D366] via-[#20BA5A] to-[#128C7E] relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-white rounded-full translate-x-1/3 translate-y-1/3"></div>
