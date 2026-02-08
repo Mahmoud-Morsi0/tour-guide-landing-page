@@ -1,42 +1,52 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import { getTranslations } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
+import { Link } from '@/src/i18n/navigation';
 import Header from '@/src/components/Header';
 import Footer from '@/src/components/Footer';
 import ImageCarousel from '@/src/components/ImageCarousel';
 import TourHeroCarousel from '@/src/components/TourHeroCarousel';
 import { getTourBySlug, tours } from '@/src/data/tours';
+import { getTourContentRu } from '@/src/data/tourContentRu';
 import { WHATSAPP_NUMBER } from '@/src/config/constants';
+import { routing } from '@/src/i18n/routing';
 
 interface TourDetailsPageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return tours.map((tour) => ({
-    slug: tour.slug,
-  }));
+  const params: { locale: string; slug: string }[] = [];
+  for (const locale of routing.locales) {
+    for (const tour of tours) {
+      params.push({ locale, slug: tour.slug });
+    }
+  }
+  return params;
 }
 
 export async function generateMetadata({
   params,
 }: TourDetailsPageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const tour = getTourBySlug(slug);
 
   if (!tour) {
-    return {
-      title: 'Tour Not Found',
-    };
+    return { title: 'Tour Not Found' };
   }
 
+  const contentRu = locale === 'ru' ? getTourContentRu(slug) : undefined;
+  const titleName = contentRu?.name ?? tour.name;
+  const description = contentRu?.fullDescription ?? tour.fullDescription;
+
   return {
-    title: `${tour.name} - Egypt Tours | ${tour.duration}`,
-    description: tour.fullDescription,
+    title: `${titleName} - Egypt Tours | ${contentRu?.duration ?? tour.duration}`,
+    description,
     openGraph: {
-      title: `${tour.name} - Egypt Tours`,
-      description: tour.description,
+      title: `${titleName} - Egypt Tours`,
+      description: contentRu?.fullDescription ?? tour.description,
       images: [tour.image],
     },
   };
@@ -45,14 +55,31 @@ export async function generateMetadata({
 export default async function TourDetailsPage({
   params,
 }: TourDetailsPageProps) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+
   const tour = getTourBySlug(slug);
+  const t = await getTranslations('tourDetail');
+  const tCommon = await getTranslations('common');
 
   if (!tour) {
     notFound();
   }
 
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hello, I would like to book the ${tour.name} tour.`)}`;
+  const contentRu = locale === 'ru' ? getTourContentRu(slug) : undefined;
+  const displayName = contentRu?.name ?? tour.name;
+  const displayFullDescription = contentRu?.fullDescription ?? tour.fullDescription;
+  const displayHighlights = contentRu?.highlights ?? tour.highlights;
+  const displayItinerary = contentRu?.itinerary ?? tour.itinerary;
+  const displayInclusions = contentRu?.inclusions ?? tour.inclusions;
+  const displayExclusions = contentRu?.exclusions ?? tour.exclusions;
+  const displayMeetingPoint = contentRu?.meetingPoint ?? tour.meetingPoint;
+  const displayCancellationPolicy = contentRu?.cancellationPolicy ?? tour.cancellationPolicy;
+  const displayDuration = contentRu?.duration ?? tour.duration;
+  const displayPrice = contentRu?.price ?? tour.price;
+
+  const bookMessage = t('bookTourMessage', { tourName: displayName });
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(bookMessage)}`;
 
   const renderStars = (rating: number) => {
     const fullStars = Math.floor(rating);
@@ -106,61 +133,50 @@ export default async function TourDetailsPage({
   return (
     <main className="min-h-screen bg-white">
       <Header whatsappNumber={WHATSAPP_NUMBER} />
-      
-      {/* Breadcrumb */}
+
       <div className="bg-gray-50 border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center gap-2 text-sm">
-            <Link
-              href="/"
-              className="text-gray-600 hover:text-amber-600 transition-colors"
-            >
-              Home
+            <Link href="/" className="text-gray-600 hover:text-amber-600 transition-colors">
+              {tCommon('home')}
             </Link>
             <span className="text-gray-400">/</span>
-            <Link
-              href="#tours"
-              className="text-gray-600 hover:text-amber-600 transition-colors"
-            >
-              Tours
+            <Link href="/#tours" className="text-gray-600 hover:text-amber-600 transition-colors">
+              {tCommon('tours')}
             </Link>
             <span className="text-gray-400">/</span>
-            <span className="text-gray-900 font-medium">{tour.name}</span>
+            <span className="text-gray-900 font-medium">{displayName}</span>
           </div>
         </div>
       </div>
 
-      {/* Hero Image Carousel */}
       <TourHeroCarousel
         images={tour.images}
         mainImage={tour.image}
-        tourName={tour.name}
-        duration={tour.duration}
-        price={tour.price}
+        tourName={displayName}
+        duration={displayDuration}
+        price={displayPrice}
         rating={tour.rating}
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Description */}
             <section>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Overview
+                {t('overview')}
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                {tour.fullDescription}
+                {displayFullDescription}
               </p>
             </section>
 
-            {/* Highlights */}
             <section>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Highlights
+                {t('highlights')}
               </h2>
               <ul className="grid md:grid-cols-2 gap-3">
-                {tour.highlights.map((highlight, index) => (
+                {displayHighlights.map((highlight, index) => (
                   <li
                     key={index}
                     className="flex items-start gap-3 text-gray-700"
@@ -184,13 +200,12 @@ export default async function TourDetailsPage({
               </ul>
             </section>
 
-            {/* Itinerary */}
             <section>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Itinerary
+                {t('itinerary')}
               </h2>
               <div className="space-y-4">
-                {tour.itinerary.map((item, index) => (
+                {displayItinerary.map((item, index) => (
                   <div
                     key={index}
                     className="flex gap-4 p-4 bg-gray-50 rounded-lg"
@@ -204,27 +219,24 @@ export default async function TourDetailsPage({
               </div>
             </section>
 
-            {/* Gallery Carousel */}
             {tour.images.length > 0 && (
               <section>
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                  Photo Gallery
+                  {t('photoGallery')}
                 </h2>
-                <ImageCarousel images={tour.images} alt={tour.name} />
+                <ImageCarousel images={tour.images} alt={displayName} />
               </section>
             )}
           </div>
 
-          {/* Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24 space-y-6">
-              {/* Booking Card */}
               <div className="bg-gray-50 rounded-2xl p-6 shadow-lg">
                 <div className="text-center mb-6">
                   <div className="text-3xl font-bold text-gray-900 mb-2">
-                    {tour.price}
+                    {displayPrice}
                   </div>
-                  <div className="text-gray-600">per person</div>
+                  <div className="text-gray-600">{t('perPerson')}</div>
                 </div>
 
                 <a
@@ -241,32 +253,31 @@ export default async function TourDetailsPage({
                   >
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
                   </svg>
-                  Book via WhatsApp
+                  {t('bookViaWhatsApp')}
                 </a>
 
                 <div className="space-y-4 pt-4 border-t border-gray-200">
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">
-                      Duration
+                      {t('duration')}
                     </h3>
-                    <p className="text-gray-600">{tour.duration}</p>
+                    <p className="text-gray-600">{displayDuration}</p>
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-2">
-                      Meeting Point
+                      {t('meetingPoint')}
                     </h3>
-                    <p className="text-gray-600">{tour.meetingPoint}</p>
+                    <p className="text-gray-600">{displayMeetingPoint}</p>
                   </div>
                 </div>
               </div>
 
-              {/* Inclusions */}
               <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  What's Included
+                  {t('whatsIncluded')}
                 </h3>
                 <ul className="space-y-2">
-                  {tour.inclusions.map((item, index) => (
+                  {displayInclusions.map((item, index) => (
                     <li
                       key={index}
                       className="flex items-start gap-2 text-gray-600"
@@ -290,14 +301,13 @@ export default async function TourDetailsPage({
                 </ul>
               </div>
 
-              {/* Exclusions */}
-              {tour.exclusions.length > 0 && (
+              {displayExclusions.length > 0 && (
                 <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    Not Included
+                    {t('notIncluded')}
                   </h3>
                   <ul className="space-y-2">
-                    {tour.exclusions.map((item, index) => (
+                    {displayExclusions.map((item, index) => (
                       <li
                         key={index}
                         className="flex items-start gap-2 text-gray-600"
@@ -322,13 +332,12 @@ export default async function TourDetailsPage({
                 </div>
               )}
 
-              {/* Cancellation Policy */}
               <div className="bg-amber-50 rounded-2xl p-6 border border-amber-200">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Cancellation Policy
+                  {t('cancellationPolicy')}
                 </h3>
                 <p className="text-sm text-gray-600">
-                  {tour.cancellationPolicy}
+                  {displayCancellationPolicy}
                 </p>
               </div>
             </div>
@@ -340,4 +349,3 @@ export default async function TourDetailsPage({
     </main>
   );
 }
-

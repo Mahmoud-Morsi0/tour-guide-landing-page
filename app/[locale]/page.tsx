@@ -11,8 +11,14 @@ import FAQ from '@/src/components/FAQ';
 import WhatsAppCTA from '@/src/components/WhatsAppCTA';
 import Footer from '@/src/components/Footer';
 import { WHATSAPP_NUMBER } from '@/src/config/constants';
+import { setRequestLocale } from 'next-intl/server';
 
-export default function Home() {
+type Props = { params: Promise<{ locale: string }> };
+
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <main className="min-h-screen">
       <Header whatsappNumber={WHATSAPP_NUMBER} />

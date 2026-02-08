@@ -1,49 +1,48 @@
+'use client';
+
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 interface HeroProps {
   whatsappNumber: string;
 }
 
 export default function Hero({ whatsappNumber }: HeroProps) {
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hello, I would like to book a tour in Egypt.')}`;
+  const t = useTranslations('hero');
+  const tCommon = useTranslations('common');
+
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(tCommon('whatsappMessage'))}`;
 
   const statistics = [
-    { number: '10k+', label: 'Happy Travelers' },
-    { number: '500+', label: 'Custom Tours' },
-    { number: '5k+', label: 'Hotel Stays Arranged' },
-  ];
+    { number: '10k+', labelKey: 'stats.travelers' },
+    { number: '500+', labelKey: 'stats.customTours' },
+    { number: '5k+', labelKey: 'stats.hotelStays' },
+  ] as const;
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="https://res.cloudinary.com/dz1qabg6g/image/upload/v1770576003/pexels-harun-15114174-20226436_yn1iyl.jpg"
-          alt="Pyramids of Giza with camel in Egyptian desert"
+          alt={t('heroAlt')}
           fill
           priority
           className="object-cover"
           quality={90}
         />
-        {/* Overlay */}
         <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/50" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 min-h-screen flex flex-col">
-        {/* Main Title - Large EGYPT text */}
         <div className="flex-1 flex items-center justify-center">
           <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-bold leading-none text-white tracking-tight">
-            EGYPT
+            {t('title')}
           </h1>
         </div>
 
-        {/* Bottom Section with Statistics and CTA */}
         <div className="mt-auto pb-12 md:pb-20">
           <div className="grid lg:grid-cols-2 gap-8 items-end">
-            {/* Left Side - Statistics and CTA */}
             <div className="space-y-6">
-              {/* Statistics */}
               <div className="grid grid-cols-3 gap-4 md:gap-6">
                 {statistics.map((stat, index) => (
                   <div key={index} className="text-white">
@@ -51,26 +50,23 @@ export default function Hero({ whatsappNumber }: HeroProps) {
                       {stat.number}
                     </div>
                     <div className="text-sm md:text-base text-white/90">
-                      {stat.label}
+                      {t(stat.labelKey)}
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Tagline */}
               <p className="text-white text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed">
-                Journey across continents, cultures, and landscapes—because every
-                path leads to new discoveries.
+                {t('tagline')}
               </p>
 
-              {/* Book Now Button */}
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:scale-105 w-fit"
               >
-                Book Now
+                {tCommon('bookNow')}
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -86,8 +82,6 @@ export default function Hero({ whatsappNumber }: HeroProps) {
                 </svg>
               </a>
             </div>
-
-         
           </div>
         </div>
       </div>

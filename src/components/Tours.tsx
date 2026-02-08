@@ -1,12 +1,28 @@
+'use client';
+
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/src/i18n/navigation';
+import { useTranslations, useLocale } from 'next-intl';
 import { tours } from '@/src/data/tours';
+import { getTourContentRu } from '@/src/data/tourContentRu';
 
 interface ToursProps {
   whatsappNumber: string;
 }
 
 export default function Tours({ whatsappNumber }: ToursProps) {
+  const t = useTranslations('tours');
+  const tCommon = useTranslations('common');
+  const locale = useLocale();
+
+  const contentRu = (slug: string) => (locale === 'ru' ? getTourContentRu(slug) : undefined);
+  const getDisplayName = (slug: string, fallbackName: string) =>
+    contentRu(slug)?.name ?? fallbackName;
+  const getDisplayDuration = (slug: string, fallbackDuration: string) =>
+    contentRu(slug)?.duration ?? fallbackDuration;
+  const getDisplayPrice = (slug: string, fallbackPrice: string) =>
+    contentRu(slug)?.price ?? fallbackPrice;
+
   const renderStars = (rating: number) => {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.5;
@@ -61,10 +77,10 @@ export default function Tours({ whatsappNumber }: ToursProps) {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Choose your tour
+            {t('title')}
           </h2>
           <p className="text-lg md:text-xl text-gray-600">
-            Explore hidden gems and authentic experiences
+            {t('subtitle')}
           </p>
         </div>
 
@@ -77,13 +93,12 @@ export default function Tours({ whatsappNumber }: ToursProps) {
               <div className="relative h-56 overflow-hidden">
                 <Image
                   src={tour.image}
-                  alt={tour.name}
+                  alt={getDisplayName(tour.slug, tour.name)}
                   fill
                   unoptimized
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />
-                {/* Rating Badge */}
                 {tour.rating && (
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1 flex items-center gap-1">
                     <svg
@@ -100,13 +115,15 @@ export default function Tours({ whatsappNumber }: ToursProps) {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-1">
-                  {tour.name}
+                  {getDisplayName(tour.slug, tour.name)}
                 </h3>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm text-gray-600">{tour.duration}</span>
+                  <span className="text-sm text-gray-600">
+                    {getDisplayDuration(tour.slug, tour.duration)}
+                  </span>
                   {tour.price && (
                     <span className="text-lg font-bold text-gray-900">
-                      {tour.price}
+                      {getDisplayPrice(tour.slug, tour.price)}
                     </span>
                   )}
                 </div>
@@ -117,7 +134,7 @@ export default function Tours({ whatsappNumber }: ToursProps) {
                   href={`/tours/${tour.slug}`}
                   className="inline-flex items-center justify-center w-full bg-gray-900 text-white px-4 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors group"
                 >
-                  More details
+                  {tCommon('moreDetails')}
                   <svg
                     className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
                     fill="none"

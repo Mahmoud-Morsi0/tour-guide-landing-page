@@ -1,0 +1,174 @@
+{
+  "common": {
+    "bookNow": "Book Now",
+    "whatsappMessage": "Hello, I would like to book a tour in Egypt.",
+    "moreDetails": "More details",
+    "home": "Home",
+    "tours": "Tours",
+    "traveler": "Traveler"
+  },
+  "header": {
+    "brand": "Egypt Tours",
+    "nav": {
+      "home": "Home",
+      "destination": "Destination",
+      "review": "Review",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "title": "EGYPT",
+    "tagline": "Journey across continents, cultures, and landscapes—because every path leads to new discoveries.",
+    "stats": {
+      "travelers": "Happy Travelers",
+      "customTours": "Custom Tours",
+      "hotelStays": "Hotel Stays Arranged"
+    },
+    "heroAlt": "Pyramids of Giza with camel in Egyptian desert"
+  },
+  "statistics": {
+    "eyebrow": "TRUSTED NETWORK",
+    "title": "Egypt Tours is more than a trip — it's a lifetime experience",
+    "subtitle": "Every journey becomes a story you'll carry forever",
+    "items": {
+      "satisfaction": { "label": "Customer Satisfaction", "description": "Rated 5 stars by thousands of travelers" },
+      "uniqueTours": { "label": "Unique Tours", "description": "Curated experiences across Egypt" },
+      "destinations": { "label": "Destinations Explored", "description": "From Cairo to the Red Sea" },
+      "experience": { "label": "Years Experience", "description": "Trusted local expertise" }
+    }
+  },
+  "tours": {
+    "eyebrow": "Choose your tour",
+    "title": "Choose your tour",
+    "subtitle": "Explore hidden gems and authentic experiences"
+  },
+  "services": {
+    "eyebrow": "WHAT WE OFFER",
+    "title": "Our Services",
+    "subtitle": "Everything you need for an unforgettable Egyptian adventure",
+    "items": {
+      "private": { "title": "Private Tours", "description": "Personalized experiences tailored to your interests and schedule. Explore at your own pace with a dedicated guide." },
+      "group": { "title": "Group Tours", "description": "Join fellow travelers on exciting group adventures. Make new friends while discovering Egypt together." },
+      "transport": { "title": "Transportation", "description": "Comfortable and reliable transportation services. Airport transfers, inter-city travel, and local transport included." },
+      "tickets": { "title": "Tickets & Guided Experiences", "description": "Skip the lines with pre-booked tickets and expert guides. Access to museums, temples, and historical sites." }
+    }
+  },
+  "destinations": {
+    "eyebrow": "EXPLORE",
+    "title": "Destinations around Egypt",
+    "subtitle": "Select a place you love and explore all the adventures we offer there",
+    "items": {
+      "cairo": { "name": "Cairo", "description": "The bustling capital city, home to the Pyramids of Giza, Egyptian Museum, and vibrant Khan el-Khalili bazaar." },
+      "luxor": { "name": "Luxor", "description": "The world's greatest open-air museum, featuring the Valley of the Kings, Karnak Temple, and Luxor Temple." },
+      "aswan": { "name": "Aswan", "description": "A serene city on the Nile, gateway to Abu Simbel and home to the beautiful Philae Temple and Nubian culture." },
+      "alexandria": { "name": "Alexandria", "description": "The Mediterranean jewel, featuring the Bibliotheca Alexandrina, Qaitbay Citadel, and beautiful coastal views." },
+      "redSea": { "name": "Red Sea Coast", "description": "Paradise for divers and beach lovers, with world-class resorts, coral reefs, and crystal-clear waters." },
+      "sinai": { "name": "Sinai Peninsula", "description": "Mount Sinai, St. Catherine's Monastery, and stunning desert landscapes perfect for adventure seekers." }
+    }
+  },
+  "whyChooseUs": {
+    "eyebrow": "TRAVEL DEEPER, NOT FARTHER",
+    "title": "Why Travel to Egypt?",
+    "subtitle": "With Egypt Tours, every journey becomes a story you'll carry forever",
+    "items": {
+      "experiences": { "title": "Experiences", "description": "Curated authentic experiences that go beyond tourist attractions" },
+      "authenticity": { "title": "Authenticity", "description": "Local expertise ensures genuine cultural immersion and hidden gems" },
+      "transparency": { "title": "Transparency", "description": "Clear pricing, no hidden fees, and honest communication throughout" },
+      "care": { "title": "Care", "description": "Personal attention and support from booking to the end of your journey" }
+    }
+  },
+  "testimonials": {
+    "title": "What Our Travelers Say",
+    "subtitle": "Real experiences from real travelers who explored Egypt with us",
+    "items": [
+      { "name": "Anna Taylor", "quote": "Planning my first trip to Egypt felt overwhelming, but the tour guide made it easy. I discovered amazing places and felt confident every step of the way! The Pyramids tour was absolutely incredible." },
+      { "name": "James Anderson", "quote": "The shared routes and tips saved me so much time while planning our family vacation. We found hidden gems in Egypt, from tranquil Nile cruises to lively markets. Every recommendation felt perfectly tailored to our group!" },
+      { "name": "Liam Walker", "quote": "I love exploring off the beaten path, and the shared itineraries were perfect for my style. Everything was detailed, making my adventure stress-free and unforgettable. The Valley of the Kings was breathtaking!" },
+      { "name": "Ethan Miller", "quote": "The insights from other travelers gave me so much inspiration for my trip to Egypt. I discovered serene temples, vibrant markets, and stunning historical sites with ease. It truly was a dream trip!" },
+      { "name": "Mia Robinson", "quote": "This tour guide helped me uncover hidden gems in Egypt that I wouldn't have found on my own. The Abu Simbel temples tour turned out to be one of the best trips I've ever taken!" },
+      { "name": "Sophia Carter", "quote": "Thanks to the detailed planning, I found cozy cafes, scenic views, and hidden viewpoints in Cairo. The stunning architecture and charming markets made every moment feel like a postcard. It was an unforgettable experience!" }
+    ]
+  },
+  "travelGallery": {
+    "title": "Our Travel Gallery",
+    "subtitle": "Capturing moments from our amazing journeys across Egypt",
+    "alts": {
+      "pyramids": "Pyramids of Giza",
+      "nile": "Nile River Cruise",
+      "luxor": "Luxor Temple",
+      "cairo": "Cairo City",
+      "abuSimbel": "Abu Simbel Temples",
+      "redSea": "Red Sea",
+      "alexandria": "Alexandria",
+      "museum": "Egyptian Museum"
+    },
+    "tours": {
+      "pyramidsTour": "Pyramids of Giza & Sphinx",
+      "nileTour": "Nile River Cruise",
+      "luxorTour": "Luxor & Valley of the Kings",
+      "cairoTour": "Cairo City Tour",
+      "abuSimbelTour": "Abu Simbel Temples",
+      "redSeaTour": "Red Sea & Desert Safari",
+      "alexandriaTour": "Alexandria Tour"
+    }
+  },
+  "faq": {
+    "title": "Got questions? We've got answers",
+    "subtitle": "Find all the essential info here — and travel with confidence!",
+    "items": [
+      { "question": "How do I book a tour?", "answer": "Booking is simple! Just click any \"Book via WhatsApp\" button on our website, and you'll be connected directly to our guide. No forms, no hassle—just chat and book your perfect Egyptian adventure." },
+      { "question": "Are the tours suitable for beginners or first-time travelers?", "answer": "Absolutely! Our tours are designed for travelers of all experience levels. We provide detailed guidance, comfortable transportation, and expert local knowledge to ensure everyone has an amazing experience, whether it's your first time in Egypt or your tenth visit." },
+      { "question": "What's included in the tour price?", "answer": "Tour inclusions vary by package, but typically include professional guide services, transportation, entrance fees to major attractions, and sometimes meals. Each tour listing specifies exactly what's included. Feel free to ask us on WhatsApp for detailed information about any specific tour." },
+      { "question": "Is it safe to travel to these destinations?", "answer": "Yes, Egypt is a safe destination for tourists. We work with experienced local guides who know the areas well and prioritize your safety. We stay updated on local conditions and provide guidance to ensure a secure and enjoyable experience." },
+      { "question": "Can I customize my itinerary or join a private tour?", "answer": "Definitely! We specialize in both private and customized tours. Whether you want to adjust an existing tour or create a completely personalized itinerary, just let us know your preferences via WhatsApp, and we'll design the perfect experience for you." },
+      { "question": "What payment methods do you accept?", "answer": "We accept various payment methods including cash, bank transfer, and digital payments. Payment details are discussed when you book via WhatsApp. We offer flexible payment options to suit your needs." }
+    ]
+  },
+  "whatsappCta": {
+    "title": "Ready to Explore Egypt?",
+    "subtitle": "Get in touch with us directly on WhatsApp. We're here to answer your questions and help plan your perfect Egyptian adventure.",
+    "button": "Start Chatting Now",
+    "responseTime": "Usually responds within minutes"
+  },
+  "footer": {
+    "brand": "Egypt Tours",
+    "about": "Your trusted local guide to Egypt's ancient wonders and modern treasures. Experience authentic Egypt with personalized tours.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "tours": "Tours",
+    "destinations": "Destinations",
+    "contactUs": "Contact Us",
+    "chatWhatsApp": "Chat on WhatsApp",
+    "phone": "Phone",
+    "location": "Location",
+    "egypt": "Egypt",
+    "copyright": "All rights reserved."
+  },
+  "contact": {
+    "title": "Contact us",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "sendMessage": "Send message"
+  },
+  "notFound": {
+    "title": "Tour Not Found",
+    "description": "The tour you're looking for doesn't exist or has been removed.",
+    "backToTours": "Back to Tours"
+  },
+  "tourDetail": {
+    "overview": "Overview",
+    "highlights": "Highlights",
+    "itinerary": "Itinerary",
+    "photoGallery": "Photo Gallery",
+    "perPerson": "per person",
+    "bookViaWhatsApp": "Book via WhatsApp",
+    "duration": "Duration",
+    "meetingPoint": "Meeting Point",
+    "whatsIncluded": "What's Included",
+    "notIncluded": "Not Included",
+    "cancellationPolicy": "Cancellation Policy",
+    "tourNotFound": "Tour Not Found",
+    "bookTourMessage": "Hello, I would like to book the {tourName} tour."
+  }
+}

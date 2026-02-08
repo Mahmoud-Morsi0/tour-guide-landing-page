@@ -1,121 +1,51 @@
-interface Service {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}
+'use client';
 
-const services: Service[] = [
-  {
-    icon: (
-      <svg
-        className="w-12 h-12"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-        />
-      </svg>
-    ),
-    title: 'Private Tours',
-    description:
-      'Personalized experiences tailored to your interests and schedule. Explore at your own pace with a dedicated guide.',
-  },
-  {
-    icon: (
-      <svg
-        className="w-12 h-12"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-        />
-      </svg>
-    ),
-    title: 'Group Tours',
-    description:
-      'Join fellow travelers on exciting group adventures. Make new friends while discovering Egypt together.',
-  },
-  {
-    icon: (
-      <svg
-        className="w-12 h-12"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-        />
-      </svg>
-    ),
-    title: 'Transportation',
-    description:
-      'Comfortable and reliable transportation services. Airport transfers, inter-city travel, and local transport included.',
-  },
-  {
-    icon: (
-      <svg
-        className="w-12 h-12"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"
-        />
-      </svg>
-    ),
-    title: 'Tickets & Guided Experiences',
-    description:
-      'Skip the lines with pre-booked tickets and expert guides. Access to museums, temples, and historical sites.',
-  },
+import { useTranslations } from 'next-intl';
+
+const serviceKeys = ['private', 'group', 'transport', 'tickets'] as const;
+
+const icons = [
+  <path key="p" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />,
+  <path key="g" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />,
+  <path key="t" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />,
+  <path key="tk" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />,
 ];
 
 export default function Services() {
+  const t = useTranslations('services');
+
   return (
     <section id="services" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
           <p className="text-sm uppercase tracking-wider text-gray-600 mb-2">
-            WHAT WE OFFER
+            {t('eyebrow')}
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Our Services
+            {t('title')}
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Everything you need for an unforgettable Egyptian adventure
+            {t('subtitle')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {services.map((service, index) => (
+          {serviceKeys.map((key, index) => (
             <div
-              key={index}
+              key={key}
               className="bg-gray-50 rounded-2xl p-6 md:p-8 hover:bg-gray-100 transition-all group"
             >
               <div className="text-amber-600 mb-6 group-hover:scale-110 transition-transform">
-                {service.icon}
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {icons[index]}
+                </svg>
               </div>
               <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-3">
-                {service.title}
+                {t(`items.${key}.title`)}
               </h3>
-              <p className="text-gray-600 leading-relaxed">{service.description}</p>
+              <p className="text-gray-600 leading-relaxed">
+                {t(`items.${key}.description`)}
+              </p>
             </div>
           ))}
         </div>

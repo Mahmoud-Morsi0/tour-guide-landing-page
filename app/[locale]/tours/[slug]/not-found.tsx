@@ -1,13 +1,14 @@
-import Link from 'next/link';
+import { Link } from '@/src/i18n/navigation';
+import { getTranslations } from 'next-intl/server';
 
-export default function NotFound() {
+export default async function TourNotFound() {
+  const t = await getTranslations('notFound');
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">Tour Not Found</h1>
-        <p className="text-gray-600 mb-8">
-          The tour you're looking for doesn't exist or has been removed.
-        </p>
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('title')}</h1>
+        <p className="text-gray-600 mb-8">{t('description')}</p>
         <Link
           href="/#tours"
           className="inline-flex items-center gap-2 bg-amber-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors"
@@ -25,10 +26,9 @@ export default function NotFound() {
               d="M10 19l-7-7m0 0l7-7m-7 7h18"
             />
           </svg>
-          Back to Tours
+          {t('backToTours')}
         </Link>
       </div>
     </div>
   );
 }
-
